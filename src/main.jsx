@@ -1,13 +1,16 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from "./Components/App"
-import {BrowserRouter} from "react-router-dom"
-import Footer from "./Components/Footer/Footer"
+import App from "./Pages/App"
+import { BrowserRouter } from "react-router-dom"
+import Footer from "./Pages/Footer/Footer"
+import { AuthContextProvider } from './context/AuthContext'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-    <App />
-    <Footer />
-    </BrowserRouter>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <App />
+        <Footer />
+      </BrowserRouter>
+    </AuthContextProvider>
   </React.StrictMode>,
 )

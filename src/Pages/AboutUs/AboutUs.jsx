@@ -8,7 +8,6 @@ const AboutUs = () => {
   return (
     <>
       <Navbar2 />
-    
       <Campus/>
       <VisionMission />
     </>

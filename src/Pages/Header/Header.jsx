@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css';
 
-import { Logo_Header } from '../../assets/image';
 import {College_Image  } from "../../assets/image";
 
 

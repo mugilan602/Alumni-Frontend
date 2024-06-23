@@ -1,11 +1,10 @@
 import React from "react";
 import { Logo_Header } from "../../assets/image";
 import { Link } from "react-router-dom";
-
-function Aheader (props) {
-  
-    const token=props.token
-    console.log(token);
+import { useAuthContext } from "../../hooks/useAuthContext";
+function Aheader() {
+    const { user } = useAuthContext();
+    console.log(user);
 
     return (
         <>
@@ -15,10 +14,10 @@ function Aheader (props) {
                         <img src={Logo_Header} alt="logo" className="image1 mt-10" />
                     </div>
                     <div className="flex justify-end items-center gap-3  ">
-                        {token!=null? 
-                            <Link to="/profile">My Profile</Link> :
-                            <Link to="/login">Login</Link>
-                        }
+                        {user ? <Link to="/profile">My Profile</Link> : <Link to="/login">Login</Link>}
+
+
+
                     </div>
                 </div>
             </div>

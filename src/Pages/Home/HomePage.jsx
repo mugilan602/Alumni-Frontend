@@ -5,11 +5,10 @@ import LatestMembers from "../LatestMembers/LatestMembers";
 import Aheader from "../Aheader/Aheader";
 import Navbar2 from "../Navbar/Navbar2";
 
-function HomePage (props) {
-    const token=props.token
+function HomePage () {
     return (
         <>
-            <Aheader token={token}/>
+            <Aheader/>
             <Navbar2 />
             <Header />
             <Events />

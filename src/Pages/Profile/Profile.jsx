@@ -14,7 +14,6 @@ function Profile() {
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
 
-    const imageUrl = `https://drive.google.com/uc?export=view&id=${data.profileImage}`;
 
     return (
         <div>
@@ -24,7 +23,7 @@ function Profile() {
                     {/* Profile Image and Choose Image */}
                     <div className="flex items-center mb-6">
                         <div className="mr-4">
-                            <img src={imageUrl} alt="Profile" className="rounded-full h-24 w-full max-w-24" />
+                            <img src={data.profileImage} alt="Profile" className="rounded-full h-24 w-full max-w-24" />
                         </div>
                     </div>
                     <form action="" method="post" encType="multipart/form-data">

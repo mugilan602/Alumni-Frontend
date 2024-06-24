@@ -19,13 +19,21 @@ const Signup = () => {
     password: '',
   });
 
+  
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    // Check if the input is a file input (profileImage)
+    if (e.target.name === 'profileImage') {
+      setFormData({ ...formData, profileImage: e.target.files[0] });
+    } else {
+      const { name, value } = e.target;
+      setFormData({ ...formData, [name]: value });
+    }
   };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     try {
       console.log(formData);
       await signup(formData); // Ensure that your signup function accepts this format
@@ -42,6 +50,10 @@ const Signup = () => {
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="flex items-center mb-6">
               {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+            </div>
+            <div>
+              <input type="file" name="profileImage" id="profileImage" onChange={handleChange}  accept="image/*"
+                required />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
@@ -229,7 +241,7 @@ const Signup = () => {
                   ))}
                 </select>
               </div>
-              <div>
+              {/* <div>
                 <label htmlFor="profileImage" className="block mb-1 py-2">
                   Profile Image URL:
                 </label>
@@ -242,7 +254,7 @@ const Signup = () => {
                   onChange={handleChange}
                   value={formData.profileImage}
                 />
-              </div>
+              </div> */}
             </div>
             <button
               type="submit"
